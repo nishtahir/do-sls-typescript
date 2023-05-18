@@ -1,0 +1,40 @@
+{
+  "name": "do-sls-typescript",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Template for a DigitalOcean serverless typescript project",
+  "main": "index.js",
+  "scripts": {
+    "copy": "npm run copy:project && npm run copy:libraries",
+    "copy:project": "copyfiles -e \"node_modules/**/*\" \"packages/**/*.json\" \"packages/**/*.js\" packages/api dist/",
+    "copy:libraries": "copyfiles -e \"node_modules/**/*\" \"libraries/**/*.js\" libraries/**/package.json dist/",
+    "deploy": "npm run deploy:prepare && doctl serverless deploy dist/",
+    "deploy:prepare": "npm run build && npm run copy",
+    "build": "npm run clean && tsc",
+    "clean": "rimraf dist",
+    "test": "jest .test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nishtahir/do-sls-typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nishtahir/do-sls-typescript/issues"
+  },
+  "homepage": "https://github.com/nishtahir/do-sls-typescript#readme",
+  "workspaces": [
+    "libraries/*",
+    "packages/",
+    "packages/api/*"
+  ],
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "jest": "^29.5.0",
+    "rimraf": "^5.0.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4"
+  }
+}

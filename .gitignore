@@ -1,0 +1,4 @@
+dist/
+.deployed
+node_modules
+*.zip

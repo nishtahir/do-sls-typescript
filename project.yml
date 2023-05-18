@@ -1,0 +1,16 @@
+parameters: {}
+environment: {}
+packages:
+  - name: api
+    shared: false
+    environment: {}
+    parameters: {}
+    annotations: {}
+    functions:
+      - name: hello.get
+        binary: false
+        runtime: nodejs:18
+        web: true
+        parameters: {}
+        environment: {}
+        annotations: {}

@@ -1,0 +1,21 @@
+{
+  "name": "hello.get",
+  "version": "1.0.0",
+  "main": "bundle.mjs",
+  "source": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "keywords": [],
+  "author": "Nish Tahir",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "hello": "file:../../../libraries/hello"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "rollup": "^3.22.0"
+  }
+}
